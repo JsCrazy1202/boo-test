@@ -1,0 +1,86 @@
+<%
+const categories = [
+  {id:1, url:"#", name:"Anime"},
+  {id:2, url:"#", name:"Music"},
+  {id:3, url:"#", name:"Politics"},
+  {id:4, url:"#", name:"Historians"},
+  {id:5, url:"#", name:"Gaming"},
+  {id:6, url:"#", name:"Art"},
+  {id:7, url:"#", name:"Comics"},
+  {id:8, url:"#", name:"Science"},
+  {id:9, url:"#", name:"Philosophy"},
+  {id:10, url:"#", name:"Movies"},
+  {id:11, url:"#", name:"Television"},
+  {id:12, url:"#", name:"Literature"},
+  {id:13, url:"#", name:"Business"},
+  {id:14, url:"#", name:"Religion"},
+  {id:15, url:"#", name:"Pop Culture"},
+  {id:16, url:"#", name:"Internet"},
+  {id:17, url:"#", name:"Anime"},
+  {id:18, url:"#", name:"Music"},
+  {id:19, url:"#", name:"Politics"},
+  {id:20, url:"#", name:"Technology"},
+  {id:21, url:"#", name:"Anime"},
+  {id:22, url:"#", name:"Music"},
+  {id:23, url:"#", name:"Politics"},
+  {id:24, url:"#", name:"Technology"},
+  {id:25, url:"#", name:"Anime"},
+  {id:26, url:"#", name:"Music"},
+  {id:27, url:"#", name:"Politics"},
+  {id:28, url:"#", name:"Technology"}
+];
+const highlighted_categories = [
+{id:4, url:"#", name:"Historians"},
+  {id:19, url:"#", name:"Politics"},
+  {id:20, url:"#", name:"Technology"}
+];
+%>
+
+<div class="col sqs-col-2 sqs-col-categories" style="padding-bottom: 2em;">
+  <a href="/">
+    <h3 style="padding-left: 16px; font-weight: 500; font-size: 1.8em; margin: 0;">
+      Soulverse
+    </h3>
+  </a>
+  <p style="padding-left: 16px; margin-right: 16px; font-weight: 400; font-size: 1em; margin: 0">
+    MBTI personality database
+  </p>
+  <div style="margin-left: 16px" class="categories">
+    <i class="material-icons category-icon">widgets</i>
+    <p class="category-title">
+      Categories
+    </p>
+    <i id="categories-icon-mobile" class="material-icons category-icon" style="cursor: pointer" onclick="toggleMenu()">expand_more</i>
+    <i id="categories-icon" class="material-icons category-icon" style="cursor: pointer" onclick="toggleMenu()">expand_less</i>
+  </div>
+  <div id="categories-list-mobile" style="border-left: 2px solid #c1c1c1; margin-top: 1em; margin-left: 2em; display:none">
+    <% categories.forEach(function(c) { %>
+      <p style="margin: 0px 2em 0px 1em; color: #6f6e6c" class="">
+
+        <% if (highlighted_categories.some(x => x.id == c.id)) { %>
+          <a style="margin: 0px 0px 0px 0px; color: #4edcd8; font-weight: bold; text-decoration: none" href="<%= c.url %>"><%= c.name %>
+          </a>
+        <% } else { %>
+          <a style="margin: 0px 0px 0px 0px; color: #6f6e6c; text-decoration: none" href="<%= c.url %>"><%= c.name %>
+          </a>
+        <% } %>
+
+      </p>
+    <% }); %>
+  </div>
+  <div id="categories-list" style="border-left: 2px solid #c1c1c1; margin-top: 1em; margin-left: 2em;">
+    <% categories.forEach(function(c) { %>
+      <p style="margin: 0px 2em 0px 1em; color: #6f6e6c" class="">
+
+        <% if (highlighted_categories.some(x => x.id == c.id)) { %>
+          <a style="margin: 0px 0px 0px 0px; color: #4edcd8; font-weight: bold; text-decoration: none" href="<%= c.url %>"><%= c.name %>
+          </a>
+        <% } else { %>
+          <a style="margin: 0px 0px 0px 0px; color: #6f6e6c; text-decoration: none" href="<%= c.url %>"><%= c.name %>
+          </a>
+        <% } %>
+
+      </p>
+    <% }); %>
+  </div>
+</div>
